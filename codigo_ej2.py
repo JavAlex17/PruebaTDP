@@ -22,11 +22,19 @@ class Ventana(QtWidgets.QMainWindow, Ui_VentanaPrincipal):
         
     
     def guardar_mascota(self):
-        pass
+        global lista_mascotas
+        nombre = self.nombre.text()
+        especie = self.especie.text()
+        edad = self.edad.text()
+        peso = self.peso.text()
+        m = Mascota(nombre,especie,edad,peso)
+        lista_mascotas.append(m)
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
+    
+    lista_mascotas = []
     
     vista = Ventana()
     vista.show()
